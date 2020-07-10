@@ -9,7 +9,9 @@ public class CharacterController2D : MonoBehaviour
     #region Variables
     [Header("Movement")]
     [SerializeField]
-    private float _walkSpeed = 400f;
+    private float _walkSpeed = 40f;
+    [SerializeField]
+    private float _runSpeed = 40f;
     [Range(0, .3f)]
     [SerializeField]
     [Tooltip("How much to smooth out the movement")]
@@ -25,7 +27,7 @@ public class CharacterController2D : MonoBehaviour
 
     // For determining which way the player is currently facing.
     private bool _facingRight = true;
-
+    private bool _isRunning = false;
     [Header("Jump")]
     [SerializeField]
     [Tooltip("Amount of force added when the player jumps")]
@@ -207,6 +209,15 @@ public class CharacterController2D : MonoBehaviour
     }
 
     /// <summary>
+    /// Sets the player's state to running
+    /// </summary>
+    /// <param name="isRunPressed">The button state. True when pressed</param>
+    public void Run(bool isRunPressed)
+    {
+        _isRunning = isRunPressed;
+    }
+
+    /// <summary>
     /// Triggers a horizontal dash to the configured dash parameters, using the current faced direction.
     /// </summary>
     public void Dash()
@@ -249,7 +260,7 @@ public class CharacterController2D : MonoBehaviour
         if (!_isClimbing && !_isDashing && (_grounded || _airControl))
         {
             // Move the character by finding the target velocity
-            Vector3 targetVelocity = new Vector2(move * _walkSpeed, _rigidbody2D.velocity.y);
+            Vector3 targetVelocity = new Vector2(move * (_isRunning? _runSpeed :_walkSpeed) * 10f, _rigidbody2D.velocity.y);
             // And then smoothing it out and applying it to the character
             float movementSmoothing = _walkDampingBasic;
             if (Mathf.Abs(targetVelocity.x) < 0.1f)

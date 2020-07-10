@@ -43,6 +43,11 @@ public class PlayerMovement : MonoBehaviour
             controller.Jump(_jump);
         }
     }
+    public void OnRun(InputValue value)
+    {
+        var input = value.Get<float>();
+        controller.Run(input == 1f);
+    }
     public void OnDash()
     {
         if (_canMove)

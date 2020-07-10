@@ -176,7 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806b796e5dfe65847988809eaf2f20ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walkSpeed: 400
+  _walkSpeed: 20
+  _runSpeed: 40
   _walkDampingBasic: 0.05
   _walkDampingWhenStopping: 0.08
   _walkDampingWhenTurning: 0.06
