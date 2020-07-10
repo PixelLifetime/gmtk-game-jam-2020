@@ -10,12 +10,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _movementInput;
     private bool _jump = false;
     private bool _canMove = true;
-    private Damageable _damagable;
+    //private Damageable _damagable;
     private void Start()
     {
-        _damagable = GetComponent<Damageable>();
-        _damagable.OnHit.AddListener(new UnityAction(() => _canMove = false));
-        _damagable.OnHitRecovery.AddListener(new UnityAction(() => _canMove = true));
+        //_damagable = GetComponent<Damageable>();
+        //_damagable.OnHit.AddListener(new UnityAction(() => _canMove = false));
+        //_damagable.OnHitRecovery.AddListener(new UnityAction(() => _canMove = true));
     }
     void FixedUpdate()
     {
@@ -42,6 +42,11 @@ public class PlayerMovement : MonoBehaviour
         {
             controller.Jump(_jump);
         }
+    }
+    public void OnRun(InputValue value)
+    {
+        var input = value.Get<float>();
+        controller.Run(input == 1f);
     }
     public void OnDash()
     {
