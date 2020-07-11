@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2078311b2025ff4ab71f70e563eb264, type: 3}
-  m_Name: '[Audio Source Control Group] Music'
+  m_Script: {fileID: 11500000, guid: 90afaaaf67135cf43803d5c7132f742b, type: 3}
+  m_Name: '[Master Audio Source Control Group]'
   m_EditorClassIdentifier: 
-  _masterAudioSourceControlGroup: {fileID: 11400000, guid: debbc05ec1bfffd4aa9752552d9e740c,
-    type: 2}
   _onVolumeChange:
     m_PersistentCalls:
       m_Calls: []

@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2078311b2025ff4ab71f70e563eb264, type: 3}
   m_Name: '[Audio Source Control Group] Sound Effects'
   m_EditorClassIdentifier: 
+  _masterAudioSourceControlGroup: {fileID: 11400000, guid: debbc05ec1bfffd4aa9752552d9e740c,
+    type: 2}
+  _onVolumeChange:
+    m_PersistentCalls:
+      m_Calls: []
   _volume: 1

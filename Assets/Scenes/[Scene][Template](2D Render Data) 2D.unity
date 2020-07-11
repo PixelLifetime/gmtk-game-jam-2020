@@ -380,7 +380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1380212768}
   m_Layer: 0
-  m_Name: ~___User Interface___~
+  m_Name: ~___User Interface (UI)___~
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
