@@ -36,16 +36,7 @@ public abstract class Enemy : Damageable
         }
         
         targetNode = GetNextTargetNode();
-        //Debug.Log("Switched target node to node " + targetNode.gameObject.name);
     }
-
-    //public void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if(collision.gameObject.layer == 9)
-    //    {
-    //        Physics.IgnoreCollision();
-    //    }
-    //}
 
     protected void TurnAround()
     {
@@ -87,7 +78,7 @@ public abstract class Enemy : Damageable
                 break;
         }
     }
-
+    protected abstract Vector2 GetSearchLocation();
     protected abstract void IdleBehavior();
     protected abstract void RoamBehavior();
     protected abstract void ChaseBehavior();

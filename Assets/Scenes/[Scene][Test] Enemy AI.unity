@@ -1282,6 +1282,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Enemy] Test AI (1)'
       objectReference: {fileID: 0}
+    - target: {fileID: 7021421658456085952, guid: ac72eb37c6b16f8468f296ed5fc12df8,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.2627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021421658456085952, guid: ac72eb37c6b16f8468f296ed5fc12df8,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.2627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021421658456085952, guid: ac72eb37c6b16f8468f296ed5fc12df8,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.2627451
+      objectReference: {fileID: 0}
     - target: {fileID: 7021421658456085955, guid: ac72eb37c6b16f8468f296ed5fc12df8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1759,12 +1774,12 @@ PrefabInstance:
     - target: {fileID: 7011738383100960757, guid: 21737add4187bbe429e54c7d0e87c8b1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.42
+      value: 0.61
       objectReference: {fileID: 0}
     - target: {fileID: 7011738383100960757, guid: 21737add4187bbe429e54c7d0e87c8b1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.72
+      value: 3.61
       objectReference: {fileID: 0}
     - target: {fileID: 7011738383100960757, guid: 21737add4187bbe429e54c7d0e87c8b1,
         type: 3}
@@ -1930,7 +1945,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1361577799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed9beae09d67d5d42af423a7e26c04f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f85eb438b12fe54c81f68321e0eff8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 0
@@ -1945,22 +1960,6 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 256
---- !u!58 &1361577801
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361577799}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.81, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.15
 --- !u!1 &1473218456
 GameObject:
   m_ObjectHideFlags: 0
@@ -2789,19 +2788,3 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 256
---- !u!58 &7011738382869297471
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7011738382869297469}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.81, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.15
