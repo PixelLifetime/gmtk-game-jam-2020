@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Enemy : Damageable
 {
+    #region Variables
     public enum EnemyBehavior { IDLE, ROAM, CHASE, ATTACK }
 
     protected EnemyBehavior currentBehavior; // What the enemy is currently doing
@@ -23,13 +24,27 @@ public abstract class Enemy : Damageable
     private bool _attacking;
     private bool _jumping;
 
+
     private const float _groundedRadius = .2f;
     Vector3 _groundCheckOffset = new Vector3(0, -0.39f, 0);
+
     [SerializeField]
     private LayerMask _groundLayer;
+    #endregion
 
+    #region Abstract Methods
+    protected abstract Vector2 GetSearchLocation();
+    protected abstract void IdleBehavior();
+    protected abstract void RoamBehavior();
+    protected abstract void ChaseBehavior();
+    protected abstract void AttackBehavior();
+
+    #endregion
+
+    #region Movement Methods
     public void OnTriggerEnter2D(Collider2D collider)
     {
+        // Only update if the trigger hit a node
         if(collider.gameObject.GetComponent<Node>() != null)
         {
             currNode = collider.gameObject.GetComponent<Node>();
@@ -52,12 +67,12 @@ public abstract class Enemy : Damageable
 
     void FixedUpdate()
     {
+        UpdateGroundedState();
         if (aggressive && IsPlayerInAttackRange())
         {
             currentBehavior = EnemyBehavior.ATTACK;
         }
-
-        UpdateGroundedState();
+        
         switch (currentBehavior)
         {
             case EnemyBehavior.IDLE:
@@ -78,12 +93,9 @@ public abstract class Enemy : Damageable
                 break;
         }
     }
-    protected abstract Vector2 GetSearchLocation();
-    protected abstract void IdleBehavior();
-    protected abstract void RoamBehavior();
-    protected abstract void ChaseBehavior();
-    protected abstract void AttackBehavior();
+    #endregion
 
+    #region Target Acquisition
     private void UpdateGroundedState()
     {
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
@@ -200,6 +212,7 @@ public abstract class Enemy : Damageable
     {
         return collisionLayer == 8;
     }
+    #endregion
 
     protected override void OnDeath()
     {
