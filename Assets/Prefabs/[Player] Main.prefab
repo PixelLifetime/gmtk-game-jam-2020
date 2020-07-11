@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d17f85e3097f5f6488813c0c31061e08, type: 3}
   m_Color: {r: 0.9433962, g: 0.38714847, b: 0.38714847, a: 1}
   m_FlipX: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   _climbDamping: 0.05
   _climbLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   OnFlipEvent:
     m_PersistentCalls:
       m_Calls: []
