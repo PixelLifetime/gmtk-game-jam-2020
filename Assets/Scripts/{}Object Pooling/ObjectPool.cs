@@ -97,6 +97,8 @@ public class ObjectPool : MonoBehaviourSingleton<ObjectPool>
 
 		public Pool(GameObject originalInstance, int initialCapacity)
 		{
+			this.Configure();
+
 			this._originalInstance = originalInstance;
 
 #if UNITY_EDITOR
