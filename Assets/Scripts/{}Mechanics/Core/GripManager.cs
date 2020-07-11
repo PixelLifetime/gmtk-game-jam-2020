@@ -26,6 +26,10 @@ public class GripManager : MonoBehaviourSingleton<GripManager>
     {
         _grip = Mathf.Min(_grip + gripIncrement, _maxGrip);
     }
+    public void Reset()
+    {
+        _grip = _maxGrip;
+    }
     public float GetGrip()
     {
         return _grip;
