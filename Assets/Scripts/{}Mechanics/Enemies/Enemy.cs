@@ -39,10 +39,13 @@ public abstract class Enemy : Damageable
         //Debug.Log("Switched target node to node " + targetNode.gameObject.name);
     }
 
-    public void OnTriggerStay2D(Collider2D collider)
-    {
-        OnTriggerEnter2D(collider);
-    }
+    //public void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if(collision.gameObject.layer == 9)
+    //    {
+    //        Physics.IgnoreCollision();
+    //    }
+    //}
 
     protected void TurnAround()
     {
@@ -62,6 +65,7 @@ public abstract class Enemy : Damageable
         {
             currentBehavior = EnemyBehavior.ATTACK;
         }
+
         UpdateGroundedState();
         switch (currentBehavior)
         {
@@ -152,6 +156,11 @@ public abstract class Enemy : Damageable
             {
                 currMin = node;
             }
+            else if(distance[node] == distance[currMin] && Random.Range(0, 1) == 1)
+            {
+                currMin = node;
+            }
+            
         }
 
         return currMin;
