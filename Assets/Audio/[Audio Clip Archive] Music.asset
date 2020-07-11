@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: '[Audio Clip Archive] Music'
   m_EditorClassIdentifier: 
   assets:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 9abb22a439231f04cb221d3e9b168509, type: 3}
