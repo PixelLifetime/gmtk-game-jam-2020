@@ -262,7 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adjacentByFoot:
   - {fileID: 258651742}
-  - {fileID: 851757522}
+  - {fileID: 1040774330}
   adjacentByJump: []
   adjacentByFlight: []
 --- !u!58 &111075565
@@ -543,8 +543,7 @@ MonoBehaviour:
   adjacentByFoot:
   - {fileID: 1878618763}
   - {fileID: 2093988788}
-  adjacentByJump:
-  - {fileID: 777743642}
+  adjacentByJump: []
   adjacentByFlight: []
 --- !u!58 &513101146
 CircleCollider2D:
@@ -570,7 +569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513101144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.07, y: -3.62, z: 0}
+  m_LocalPosition: {x: 4.53, y: -3.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1148440644}
@@ -757,7 +756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adjacentByFoot:
   - {fileID: 1982211761}
-  - {fileID: 513101144}
+  - {fileID: 1878618763}
   adjacentByJump: []
   adjacentByFlight: []
 --- !u!58 &777743644
@@ -823,8 +822,7 @@ MonoBehaviour:
   adjacentByFoot:
   - {fileID: 1040774330}
   - {fileID: 1580021024}
-  adjacentByJump:
-  - {fileID: 111075562}
+  adjacentByJump: []
   adjacentByFlight: []
 --- !u!58 &851757524
 CircleCollider2D:
@@ -850,7 +848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851757522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.69, y: -3.62, z: 0}
+  m_LocalPosition: {x: -3.34, y: -3.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1148440644}
@@ -890,6 +888,7 @@ MonoBehaviour:
   - {fileID: 851757522}
   adjacentByJump:
   - {fileID: 769123450}
+  - {fileID: 111075562}
   adjacentByFlight: []
 --- !u!58 &1040774332
 CircleCollider2D:
@@ -915,7 +914,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040774330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.74, y: -3.62, z: 0}
+  m_LocalPosition: {x: -1.44, y: -3.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1148440644}
@@ -1351,7 +1350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580021024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.86, y: -3.62, z: 0}
+  m_LocalPosition: {x: -6.14, y: -3.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1148440644}
@@ -1533,6 +1532,7 @@ MonoBehaviour:
   - {fileID: 513101144}
   adjacentByJump:
   - {fileID: 769123450}
+  - {fileID: 777743642}
   adjacentByFlight: []
 --- !u!58 &1878618765
 CircleCollider2D:
@@ -1558,7 +1558,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878618763}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.79, y: -3.62, z: 0}
+  m_LocalPosition: {x: 2.42, y: -3.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1148440644}
@@ -1688,7 +1688,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2093988788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.75, y: -3.62, z: 0}
+  m_LocalPosition: {x: 6.86, y: -3.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1148440644}

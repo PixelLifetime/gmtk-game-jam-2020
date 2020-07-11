@@ -44,7 +44,9 @@ public class TestEnemy : Enemy
         }
         if(grounded && targetNode.transform.position.y > transform.position.y)
         {
-            Jump();
+            float jumpHeight = Mathf.Abs(targetNode.transform.position.y - transform.position.y) * 5f;
+            jumpHeight = Mathf.Max(jumpHeight, 10);
+            Jump(jumpHeight);
         }
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();

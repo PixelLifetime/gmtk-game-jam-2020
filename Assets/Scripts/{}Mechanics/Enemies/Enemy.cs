@@ -50,9 +50,9 @@ public abstract class Enemy : Damageable
         transform.Rotate(new Vector3(0, 180, 0));
     }
 
-    protected void Jump()
+    protected void Jump(float jumpForce)
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 15f);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpForce);
         grounded = false;
     }
 
