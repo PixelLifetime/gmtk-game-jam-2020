@@ -14,8 +14,13 @@ public class AudioSourcePlayerTests : MonoBehaviour
 	{
 		yield return new WaitForSecondsRealtime(1.0f);
 
-		AudioSourceController audioSourceController = this._audioSourcePlayer.Play(audioClip: this._audioClip);
+		while (true)
+		{
+			AudioSourceController audioSourceController = this._audioSourcePlayer.Play(audioClip: this._audioClip);
 
-		ObjectPool.Instance.Release(audioSourceController);
+			yield return new WaitForSecondsRealtime(this._audioClip.length + 0.5f);
+
+			ObjectPool.Instance.Release(audioSourceController);
+		}
 	}
 }
