@@ -960,6 +960,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7011738383100960648, guid: 21737add4187bbe429e54c7d0e87c8b1,
+        type: 3}
+      propertyPath: _groundCheckOffset.y
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7011738383100960649, guid: 21737add4187bbe429e54c7d0e87c8b1,
         type: 3}
       propertyPath: m_Name

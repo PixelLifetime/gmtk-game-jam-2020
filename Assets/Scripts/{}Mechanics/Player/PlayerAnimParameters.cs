@@ -9,5 +9,7 @@ public enum PlayerAnimParameters
     IsClimbing,
     ClimbSpeed,
     ClimbSpeedX,
-    ClimbSpeedY
+    ClimbSpeedY,
+    OnGround,
+    FallSpeed
 }
