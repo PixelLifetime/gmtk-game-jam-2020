@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.pixel-lifetime.ui-view-system": "file:../unity-packages/ui-view-system",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.cinemachine": "2.6.0",

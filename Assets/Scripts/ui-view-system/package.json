@@ -1,0 +1,20 @@
+{
+  "name": "com.pixel-lifetime.ui-view-system",
+  "version": "1.0.1",
+  "displayName": "UI View System",
+  "description": "A small UI system to ease your workflow.",
+  "unity": "2019.2",
+	"dependencies": {
+		"com.unity.textmeshpro": "2.0.1"
+	},
+  "keywords": [
+    "system",
+    "user interface",
+    "ui"
+  ],
+  "author": {
+    "name": "Pixel Lifetime",
+    "email": "pixel.lifetime@gmail.com",
+    "url": "https://github.com/PixelLifetime"
+  }
+}
