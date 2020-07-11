@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -11,12 +12,13 @@ public class GripPlatform : GripEffect
     protected override void DoEffect()
     {
         collider2D.enabled = false;
-        tilemap.color = new Color(tilemap.color.r, tilemap.color.g, tilemap.color.b, 0f);
+        DOTween.ToAlpha(() => tilemap.color, x => tilemap.color = x, 0, 1);
+
     }
 
     protected override void UndoEffect()
     {
         collider2D.enabled = true;
-        tilemap.color = new Color(tilemap.color.r, tilemap.color.g, tilemap.color.b, 1f);
+        DOTween.ToAlpha(() => tilemap.color, x => tilemap.color = x, 1, 1);
     }
 }
