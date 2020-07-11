@@ -17,7 +17,6 @@ public class PlayerGrip : MonoBehaviour
         {
             increment = Mathf.Max(increment, light.GetGripIncrement(transform));
         }
-        Debug.Log("My grip is going up by " + increment);
         GripManager.Instance.IncrementGrip(increment);
     }
 
