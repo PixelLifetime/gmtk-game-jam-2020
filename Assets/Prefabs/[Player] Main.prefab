@@ -221,7 +221,7 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 256
-  _groundCheckOffset: {x: 0, y: -0.38, z: 0}
+  _groundCheckOffset: {x: 0, y: -0.5, z: 0}
   _climbLateralSpeed: 300
   _climbUpSpeed: 200
   _climbDownSpeed: 300

@@ -237,12 +237,11 @@ public class CharacterController2D : MonoBehaviour
     {
         bool wasGrounded = _grounded;
         _grounded = false;
-
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + _groundCheckOffset, _groundedRadius, _groundLayer);
         for (int i = 0; i < colliders.Length; i++)
         {
-            if (colliders[i].gameObject != gameObject)
+            if (colliders[i].gameObject != gameObject && _rigidbody2D.velocity.y <= 1f)
             {
                 _grounded = true;
                 _timeLastGrounded = Time.time;
@@ -253,6 +252,7 @@ public class CharacterController2D : MonoBehaviour
                 break;
             }
         }
+        animator.SetBool(PlayerAnimParameters.OnGround.ToString(), _grounded);
     }
     #endregion
 
@@ -311,6 +311,7 @@ public class CharacterController2D : MonoBehaviour
             {
                 _rigidbody2D.velocity += Vector2.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
             }
+            animator.SetFloat(PlayerAnimParameters.FallSpeed.ToString(), _rigidbody2D.velocity.y);
         }
     }
     private void OnLanding()
