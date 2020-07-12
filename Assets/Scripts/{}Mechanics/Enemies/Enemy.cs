@@ -10,7 +10,8 @@ public abstract class Enemy : Damageable
     protected EnemyBehavior currentBehavior; // What the enemy is currently doing
     protected GameObject player;
     protected Node[] nodeGrid;
-    protected float moveSpeed;
+    [SerializeField]
+    protected float moveSpeed = 4.0f;
     protected float attackRange;
     protected bool aggressive; // An aggresive enemy will attack the player if it enter its range, whereas a non aggressive one will not.
     protected bool isFacingRight;
@@ -66,7 +67,7 @@ public abstract class Enemy : Damageable
     protected void TurnAround()
     {
         isFacingRight = (isFacingRight) ? false : true;
-        transform.Rotate(new Vector3(0, 180, 0));
+        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
 
     protected void Jump(float jumpForce)

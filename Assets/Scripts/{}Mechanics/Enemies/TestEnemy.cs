@@ -14,7 +14,7 @@ public class TestEnemy : Enemy
         moveSpeed = 4f;
         isFacingRight = false;
         canJump = true;
-        DOTween.ToAlpha(() => GetComponent<SpriteRenderer>().color, x => GetComponent<SpriteRenderer>().color = x, 1, 1);
+        DOTween.ToAlpha(() => GetComponentInChildren<SpriteRenderer>().color, x => GetComponentInChildren<SpriteRenderer>().color = x, 1, 1);
     }
 
     protected override void AttackBehavior()
