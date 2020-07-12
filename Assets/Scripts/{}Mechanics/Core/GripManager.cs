@@ -21,10 +21,12 @@ public class GripManager : MonoBehaviourSingleton<GripManager>
     public void DecrementGrip(float gripDecrement)
     {
         _grip = Mathf.Max(_grip - gripDecrement, 0f);
+        GripIndicatorController.Instance.Value = Mathf.RoundToInt(_grip / _maxGrip * 10f);
     }
     public void IncrementGrip(float gripIncrement)
     {
         _grip = Mathf.Min(_grip + gripIncrement, _maxGrip);
+        GripIndicatorController.Instance.Value = Mathf.RoundToInt(_grip / _maxGrip * 10f);
     }
     public void Reset()
     {

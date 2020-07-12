@@ -64,6 +64,14 @@ public abstract class Enemy : Damageable
         targetNode = GetNextTargetNode();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GameManager.Instance.Lose();
+        }
+    }
+
     protected void TurnAround()
     {
         isFacingRight = (isFacingRight) ? false : true;
