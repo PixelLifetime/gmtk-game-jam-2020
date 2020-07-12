@@ -134,7 +134,7 @@ public abstract class Enemy : Damageable
         // Then we apply bfs to find the shortest path to the target node
         Queue<Node> needToCheck = new Queue<Node>();
         needToCheck.Enqueue(playerNode);
-        Dictionary<Node, int> distance = new Dictionary<Node, int>();
+        Dictionary<Node, float> distance = new Dictionary<Node, float>();
         distance[playerNode] = 0;
 
         while(needToCheck.Count > 0)
@@ -164,7 +164,7 @@ public abstract class Enemy : Damageable
         return targetNode;
     }
 
-    private Node GetMinimumNodeDistance(Node currMin, GameObject[] nodeObjects, Dictionary<Node, int> distance)
+    private Node GetMinimumNodeDistance(Node currMin, GameObject[] nodeObjects, Dictionary<Node, float> distance)
     {
         foreach (GameObject go in nodeObjects)
         {
@@ -183,7 +183,7 @@ public abstract class Enemy : Damageable
         return currMin;
     }
 
-    private void AddAdjacentNodes(GameObject[] nodeObjects, Queue<Node> needToCheck, Dictionary<Node, int> distance, Node curr)
+    private void AddAdjacentNodes(GameObject[] nodeObjects, Queue<Node> needToCheck, Dictionary<Node, float> distance, Node curr)
     {
         foreach (GameObject go in nodeObjects)
         {
@@ -191,9 +191,17 @@ public abstract class Enemy : Damageable
             if (!distance.ContainsKey(adjacent))
             {
                 needToCheck.Enqueue(adjacent);
-                distance[adjacent] = 1 + distance[curr];
+                distance[adjacent] = GetDistanceBetweenTwoVectors(adjacent.transform.position, curr.transform.position) + distance[curr];
             }
         }
+    }
+
+    private float GetDistanceBetweenTwoVectors(Vector2 v1, Vector2 v2)
+    {
+        float xDiff = Mathf.Abs(v1.x - v2.x);
+        float yDiff = Mathf.Abs(v1.y - v2.y);
+
+        return xDiff + yDiff;
     }
 
     protected Node FindClosestNode(Vector2 position)
