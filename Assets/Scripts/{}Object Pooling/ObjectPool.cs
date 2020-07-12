@@ -19,6 +19,7 @@ public class ObjectPool : MonoBehaviourSingleton<ObjectPool>
 	public class Pool
 	{
 		private GameObject _originalInstance;
+		public GameObject OriginalInstance => this._originalInstance;
 
 		public int InitialCapacity { get; }
 		public int InstanceId { get; }
@@ -44,6 +45,9 @@ public class ObjectPool : MonoBehaviourSingleton<ObjectPool>
 
 				this.ReleasePipeline.Execute(value: poolable.GameObject);
 
+				//TODO: remove this quick fix.
+				//poolable.GameObject.transform.SetParent(ObjectPool.Instance.transform);
+
 				this._poolables.Enqueue(item: poolable);
 			}
 		}
@@ -58,6 +62,9 @@ public class ObjectPool : MonoBehaviourSingleton<ObjectPool>
 			poolable.OnRelease();
 
 			this.ReleasePipeline.Execute(value: poolable.GameObject);
+
+			//TODO: remove this quick fix.
+			//poolable.GameObject.transform.SetParent(ObjectPool.Instance.transform);
 
 			this._poolables.Enqueue(item: poolable);
 		}
@@ -200,6 +207,16 @@ public class ObjectPool : MonoBehaviourSingleton<ObjectPool>
 
 	public void Initialize(InitializationData[] initializationData)
 	{
+		if (this._instanceId_pool != null)
+		{
+
+		//TODO: try to resolve it in a different way.
+		foreach (KeyValuePair<int, Pool> item in this._instanceId_pool)
+		{
+				item.Value.OriginalInstance.GetComponent<AudioSourceController>().Pool = null;
+		}
+		}
+
 		this._instanceId_pool = new Dictionary<int, Pool>();
 
 		for (int a = 0; a < initializationData.Length; a++)
