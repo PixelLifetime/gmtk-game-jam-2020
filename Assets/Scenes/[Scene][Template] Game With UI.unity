@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -964,7 +964,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d17f85e3097f5f6488813c0c31061e08, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 443409f9fefe2254f84c6a0e9195534d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1030,8 +1030,9 @@ GameObject:
   - component: {fileID: 1124434447}
   - component: {fileID: 1124434449}
   - component: {fileID: 1124434450}
+  - component: {fileID: 1124434451}
   m_Layer: 0
-  m_Name: '[Image] Indicator'
+  m_Name: '[Image][Discrete Indicator]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1147,6 +1148,19 @@ MonoBehaviour:
   - {fileID: 8592327408284928129, guid: 001ea6783a3ccd94f87d796517d6ebff, type: 3}
   - {fileID: -7655890223385593270, guid: 001ea6783a3ccd94f87d796517d6ebff, type: 3}
   - {fileID: 6635971914751189689, guid: 001ea6783a3ccd94f87d796517d6ebff, type: 3}
+--- !u!114 &1124434451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124434445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b1ad10d089b6a4d80678ed1becb5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _discreteIndicator: {fileID: 1124434449}
 --- !u!1 &1153457876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,8 +1946,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -100}
+  m_SizeDelta: {x: 0, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1720765602
 MonoBehaviour:
@@ -1964,8 +1978,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4283585106
+  m_fontColor: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2021,7 +2035,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 25, y: 25, z: 25, w: 25}
+  m_margin: {x: 45, y: 25, z: 45, w: 45}
   m_textInfo:
     textComponent: {fileID: 1720765602}
     characterCount: 61
@@ -2341,6 +2355,17 @@ MonoBehaviour:
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Note, Assembly-CSharp
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1124434451}
+        m_MethodName: set_Value
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
