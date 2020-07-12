@@ -6,11 +6,7 @@ public class TestEnemyFast : Enemy
 {
     void Awake()
     {
-        player = GameObject.Find("[Player] Main"); // Change to recieve from spawner once spawner is implemented
-        NodeGrid = GameObject.Find("[AI] Node Grid").GetComponentsInChildren<Node>(); // Change to recieve from spawner once spawner is implemented
-        currentBehavior = EnemyBehavior.CHASE;
-        currNode = FindClosestNode(transform.position);
-        targetNode = currNode;
+        currentBehavior = EnemyBehavior.ROAM;
         aggressive = true;
         attackRange = 1.5f;
         moveSpeed = 4.7f;

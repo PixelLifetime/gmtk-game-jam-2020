@@ -9,7 +9,7 @@ public abstract class Enemy : Damageable
 
     protected EnemyBehavior currentBehavior; // What the enemy is currently doing
     protected GameObject player;
-    protected Node[] NodeGrid;
+    protected Node[] nodeGrid;
     protected float moveSpeed;
     protected float attackRange;
     protected bool aggressive; // An aggresive enemy will attack the player if it enter its range, whereas a non aggressive one will not.
@@ -23,6 +23,7 @@ public abstract class Enemy : Damageable
 
     private bool _attacking;
     private bool _jumping;
+    private Vector2 _lastGroundedPosition;
 
 
     private const float _groundedRadius = .2f;
@@ -31,6 +32,15 @@ public abstract class Enemy : Damageable
     [SerializeField]
     private LayerMask _groundLayer;
     #endregion
+
+    public void InitializeEnemyData(Node[] nodeGrid, GameObject player, EnemyBehavior enemyBehavior)
+    {
+        this.nodeGrid = nodeGrid;
+        this.player = player;
+        currentBehavior = enemyBehavior;
+        currNode = FindClosestNode(transform.position);
+        targetNode = currNode;
+    }
 
     #region Abstract Methods
     protected abstract Vector2 GetSearchLocation();
@@ -68,6 +78,10 @@ public abstract class Enemy : Damageable
     void FixedUpdate()
     {
         UpdateGroundedState();
+        if (grounded)
+        {
+            _lastGroundedPosition = transform.position;
+        }
         if (aggressive && IsPlayerInAttackRange())
         {
             currentBehavior = EnemyBehavior.ATTACK;
@@ -184,10 +198,10 @@ public abstract class Enemy : Damageable
 
     protected Node FindClosestNode(Vector2 position)
     {
-        Node closest = NodeGrid[0];
+        Node closest = nodeGrid[0];
         float closestDist = 100000000;
         
-        foreach(Node node in NodeGrid)
+        foreach(Node node in nodeGrid)
         {
             float xDiff = Mathf.Abs(node.gameObject.transform.position.x - position.x);
             float yDiff = Mathf.Abs(node.gameObject.transform.position.y - position.y);
@@ -213,6 +227,11 @@ public abstract class Enemy : Damageable
         return collisionLayer == 8;
     }
     #endregion
+
+    void OnMouseDown()
+    {
+        Debug.Log("Hey I'm " + gameObject.name + ". I'm currently on node " + currNode.gameObject.name + " and I'm headed to node " + targetNode.gameObject.name);
+    }
 
     protected override void OnDeath()
     {

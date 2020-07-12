@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,16 +8,13 @@ public class TestEnemy : Enemy
 
     void Awake()
     {
-        player = GameObject.Find("[Player] Main"); // Change to recieve from spawner once spawner is implemented
-        NodeGrid = GameObject.Find("[AI] Node Grid").GetComponentsInChildren<Node>(); // Change to recieve from spawner once spawner is implemented
-        currentBehavior = EnemyBehavior.CHASE;
-        currNode = FindClosestNode(transform.position);
-        targetNode = currNode;
+        currentBehavior = EnemyBehavior.ROAM;
         aggressive = true;
         attackRange = 1.5f;
         moveSpeed = 4f;
         isFacingRight = false;
         canJump = true;
+        DOTween.ToAlpha(() => GetComponent<SpriteRenderer>().color, x => GetComponent<SpriteRenderer>().color = x, 1, 1);
     }
 
     protected override void AttackBehavior()
