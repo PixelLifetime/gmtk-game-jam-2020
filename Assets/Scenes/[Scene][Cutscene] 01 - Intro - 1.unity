@@ -569,6 +569,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 935414257170443672, guid: d94a7b7e584ac484fa208cf7c03a734f,
+        type: 3}
+      propertyPath: _onAwake.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 935414257170443672, guid: d94a7b7e584ac484fa208cf7c03a734f,
+        type: 3}
+      propertyPath: _onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 935414257170443672, guid: d94a7b7e584ac484fa208cf7c03a734f,
+        type: 3}
+      propertyPath: _onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 935414257170443672, guid: d94a7b7e584ac484fa208cf7c03a734f,
+        type: 3}
+      propertyPath: _onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1866640866}
+    - target: {fileID: 935414257170443672, guid: d94a7b7e584ac484fa208cf7c03a734f,
+        type: 3}
+      propertyPath: _onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LoadNextSceneWithDelay
+      objectReference: {fileID: 0}
+    - target: {fileID: 935414257170443672, guid: d94a7b7e584ac484fa208cf7c03a734f,
+        type: 3}
+      propertyPath: _onAwake.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 935414257170443673, guid: d94a7b7e584ac484fa208cf7c03a734f,
         type: 3}
       propertyPath: onActionStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -577,12 +607,17 @@ PrefabInstance:
     - target: {fileID: 935414257170443673, guid: d94a7b7e584ac484fa208cf7c03a734f,
         type: 3}
       propertyPath: onActionStarted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadNextSceneWithDelay
+      value: LoadNextScene
       objectReference: {fileID: 0}
     - target: {fileID: 935414257170443673, guid: d94a7b7e584ac484fa208cf7c03a734f,
         type: 3}
       propertyPath: onActionStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 935414257170443673, guid: d94a7b7e584ac484fa208cf7c03a734f,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Gamepad>/buttonSouth
       objectReference: {fileID: 0}
     - target: {fileID: 935414257170443675, guid: d94a7b7e584ac484fa208cf7c03a734f,
         type: 3}
