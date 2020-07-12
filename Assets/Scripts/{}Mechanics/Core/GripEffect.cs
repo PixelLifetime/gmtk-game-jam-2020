@@ -13,7 +13,6 @@ public abstract class GripEffect : MonoBehaviour
     private void Start()
     {
         _underThreshold = GripManager.Instance.GetGrip() < _gripTreshold;
-        ExecuteEffect();
     }
     void Update()
     {

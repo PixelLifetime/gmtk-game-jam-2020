@@ -18,6 +18,7 @@ public class PlayerGrip : MonoBehaviour
             increment = Mathf.Max(increment, light.GetGripIncrement(transform));
         }
         GripManager.Instance.IncrementGrip(increment);
+        Debug.Log(GripManager.Instance.GetGrip());
     }
 
     private void OnTriggerEnter2D(Collider2D other)
