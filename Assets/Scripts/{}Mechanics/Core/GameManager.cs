@@ -29,10 +29,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         // Do something
         Debug.Log("Lose");
-        // Just a quick reset for the moment
-        GripManager.Instance.Reset();
-
-		this._sceneOperator.ReloadScene();
+        ResetGame();
     }
 
     public void EndLevel()
@@ -40,10 +37,17 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         if (_hasCollectedKey)
         {
             Debug.Log("End level");
-            // Just a quick reset for the moment
-            GripManager.Instance.Reset();
-
-			this._sceneOperator.LoadNextScene();
+            ResetGame();
         }
+    }
+
+    private void ResetGame()
+    {
+        _hasCollectedKey = false;
+        // Just a quick reset for the moment
+        GripManager.Instance.Reset();
+
+        this._sceneOperator.LoadNextScene();
+
     }
 }
