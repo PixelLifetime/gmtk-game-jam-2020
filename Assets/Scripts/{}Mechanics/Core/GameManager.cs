@@ -23,6 +23,15 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         OnKeyCollected.Invoke();
     }
 
+    public void Lose()
+    {
+        // Do something
+        Debug.Log("Lose");
+        // Just a quick reset for the moment
+        GripManager.Instance.Reset();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void EndLevel()
     {
         if (_hasCollectedKey)
