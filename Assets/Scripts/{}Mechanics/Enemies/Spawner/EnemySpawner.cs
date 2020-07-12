@@ -89,7 +89,8 @@ public class EnemySpawner : GripEffect
 
     private GameObject SpawnEnemy()
     {
-        GameObject go = Instantiate(_enemiesICanSpawn[UnityEngine.Random.Range(0, _enemiesICanSpawn.Length)]);
+        GameObject prefabToSpawn = _enemiesICanSpawn[UnityEngine.Random.Range(0, _enemiesICanSpawn.Length)];
+        GameObject go = Instantiate(prefabToSpawn, new Vector2(transform.position.x, transform.position.y), new Quaternion());
         Color rgbs = go.GetComponent<SpriteRenderer>().color;
         go.GetComponent<SpriteRenderer>().color = new Color(rgbs.r, rgbs.g, rgbs.b, 0f);
         DOTween.ToAlpha(() => go.GetComponent<SpriteRenderer>().color, x => go.GetComponent<SpriteRenderer>().color = x, 1, 1);
