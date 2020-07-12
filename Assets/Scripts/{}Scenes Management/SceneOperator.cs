@@ -28,6 +28,8 @@ public class SceneOperator : MonoBehaviour
 	public void LoadScene(int sceneBuildIndex) => SceneManager.LoadScene(sceneBuildIndex: sceneBuildIndex);
 	public void LoadScene(string sceneName) => SceneManager.LoadScene(sceneName: sceneName);
 
+	public void ReloadScene() => SceneManager.LoadScene(sceneBuildIndex: SceneManager.GetActiveScene().buildIndex);
+
 	[SerializeField] private float _sceneLoadDelay = 0.4f;
 	public float _SceneLoadDelay => this._sceneLoadDelay;
 

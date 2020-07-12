@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public UnityEvent OnKeyCollected;
     private bool _hasCollectedKey;
 
-    private void Start()
+	[SerializeField] private SceneOperator _sceneOperator;
+
+	private void Start()
     {
         if (OnKeyCollected == null)
         {
@@ -29,7 +31,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         Debug.Log("Lose");
         // Just a quick reset for the moment
         GripManager.Instance.Reset();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+		this._sceneOperator.ReloadScene();
     }
 
     public void EndLevel()
@@ -39,7 +42,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             Debug.Log("End level");
             // Just a quick reset for the moment
             GripManager.Instance.Reset();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+			this._sceneOperator.LoadNextScene();
         }
     }
 }
