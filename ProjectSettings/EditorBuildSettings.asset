@@ -18,11 +18,17 @@ EditorBuildSettings:
     path: Assets/Scenes/[Scene][Cutscene] 02 - Act 1 Intro.unity
     guid: c7d44d0aa28634d319154fda71910fc4
   - enabled: 1
+    path: Assets/Scenes/[Scene][Level] Level 2.unity
+    guid: c17b36d01dc0e494e847d7903d207084
+  - enabled: 1
     path: Assets/Scenes/[Scene][Cutscene] 02 - Act 1 Outro.unity
     guid: f4ebee411c9d64377a4cc5b323da2a47
   - enabled: 1
     path: Assets/Scenes/[Scene][Cutscene] 02 - Act 2 Intro.unity
     guid: c1ec6372a221b47bfba3ec5a7f55d443
+  - enabled: 1
+    path: Assets/Scenes/[Scene][Level] Level 3.unity
+    guid: 32d765df94fd8a441b4d1a566746a12f
   - enabled: 1
     path: Assets/Scenes/[Scene][Cutscene] 02 - Act 2 Outro.unity
     guid: 75a2f762224044b61aa6e45d174afc73
