@@ -99,6 +99,8 @@ public class CharacterController2D : MonoBehaviour
     [Tooltip("A mask determining what is climbable to the character")]
     private LayerMask _climbLayer;
 
+    public Animator animator;
+
     private bool _canClimb;
     private bool _isClimbing;
     // The time when the player was climbing for the last time
@@ -215,6 +217,7 @@ public class CharacterController2D : MonoBehaviour
     public void Run(bool isRunPressed)
     {
         _isRunning = isRunPressed;
+        animator.SetBool(PlayerAnimParameters.IsRunning.ToString(), _isRunning);
     }
 
     /// <summary>
@@ -234,12 +237,11 @@ public class CharacterController2D : MonoBehaviour
     {
         bool wasGrounded = _grounded;
         _grounded = false;
-
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + _groundCheckOffset, _groundedRadius, _groundLayer);
         for (int i = 0; i < colliders.Length; i++)
         {
-            if (colliders[i].gameObject != gameObject)
+            if (colliders[i].gameObject != gameObject && _rigidbody2D.velocity.y <= 1f)
             {
                 _grounded = true;
                 _timeLastGrounded = Time.time;
@@ -250,6 +252,7 @@ public class CharacterController2D : MonoBehaviour
                 break;
             }
         }
+        animator.SetBool(PlayerAnimParameters.OnGround.ToString(), _grounded);
     }
     #endregion
 
@@ -273,6 +276,7 @@ public class CharacterController2D : MonoBehaviour
             }
 
             _rigidbody2D.velocity = Vector3.SmoothDamp(_rigidbody2D.velocity, targetVelocity, ref _velocity, movementSmoothing);
+            animator.SetFloat(PlayerAnimParameters.WalkSpeed.ToString(), Mathf.Abs(_rigidbody2D.velocity.x));
         }
     }
 
@@ -307,6 +311,7 @@ public class CharacterController2D : MonoBehaviour
             {
                 _rigidbody2D.velocity += Vector2.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
             }
+            animator.SetFloat(PlayerAnimParameters.FallSpeed.ToString(), _rigidbody2D.velocity.y);
         }
     }
     private void OnLanding()
@@ -386,6 +391,9 @@ public class CharacterController2D : MonoBehaviour
             // And then smoothing it out and applying it to the character
             _rigidbody2D.velocity = Vector3.SmoothDamp(
                 _rigidbody2D.velocity, targetVelocity, ref _velocity, _climbDamping);
+            animator.SetFloat(PlayerAnimParameters.ClimbSpeed.ToString(), _rigidbody2D.velocity.magnitude);
+            animator.SetFloat(PlayerAnimParameters.ClimbSpeedX.ToString(), _rigidbody2D.velocity.x);
+            animator.SetFloat(PlayerAnimParameters.ClimbSpeedY.ToString(), _rigidbody2D.velocity.y);
         }
     }
     private bool IsClimbLayer(int layer)
@@ -399,6 +407,7 @@ public class CharacterController2D : MonoBehaviour
         {
             OnClimbStartEvent.Invoke();
             _isClimbing = true;
+            animator.SetBool(PlayerAnimParameters.IsClimbing.ToString(), _isClimbing);
             CancelGravity();
             _rigidbody2D.velocity = Vector2.zero;
         }
@@ -408,6 +417,7 @@ public class CharacterController2D : MonoBehaviour
     {
         OnClimbEndEvent.Invoke();
         _isClimbing = false;
+        animator.SetBool(PlayerAnimParameters.IsClimbing.ToString(), _isClimbing);
         _timeLastClimbing = Time.time;
         if (!_isDashing)
         {

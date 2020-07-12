@@ -12,7 +12,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     private void Start()
     {
-        OnKeyCollected = new UnityEvent();
+        if (OnKeyCollected == null)
+        {
+            OnKeyCollected = new UnityEvent();
+        }
     }
     public void SetKeyCollected()
     {
