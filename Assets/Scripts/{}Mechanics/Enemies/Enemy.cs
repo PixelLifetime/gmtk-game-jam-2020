@@ -76,6 +76,7 @@ public abstract class Enemy : Damageable
     {
         isFacingRight = (isFacingRight) ? false : true;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, GetComponent<Rigidbody2D>().velocity.y);
     }
 
     protected void Jump(float jumpForce)

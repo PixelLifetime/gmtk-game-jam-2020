@@ -31,6 +31,8 @@ public class AudioClipPlaybackEngine : MonoBehaviour
 
 	private IEnumerator Start()
 	{
+		ObjectPool.Instance.Initialize(ObjectPool.Instance._InitializationData);
+
 		if (this._playOnStart)
 		{
 			AudioSourceController audioSourceController = this._audioSourcePlayer.AquireAudioSourceController();
