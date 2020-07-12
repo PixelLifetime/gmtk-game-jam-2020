@@ -1044,9 +1044,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 0}
   controlsCursor: 0
-  _initiallyActive: 1
+  _initiallyActive: 0
   _useAnimatorForInitialization: 1
-  _initiallyShown: 1
+  _initiallyShown: 0
   _textField: {fileID: 7253915920187700445}
   _offset: {x: 0, y: 125, z: 0}
 --- !u!1 &7253915920187700447
