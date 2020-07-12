@@ -54,4 +54,11 @@ public class AudioSourcePlayer : MonoBehaviour
 
 		return audioSourceController;
 	}
+
+	public AudioSourceController AquireAudioSourceController()
+	{
+		return ObjectPool.Instance.Aquire<AudioSourceController>(
+			poolable: this._audioSourceControllerPrefab
+		);
+	}
 }
