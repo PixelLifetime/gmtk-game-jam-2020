@@ -10,11 +10,24 @@ public class AudioSourceController : MonoBehaviour, IPoolable
 
 	public AudioSource AudioSource { get; private set; }
 
-	public float Volume { get; set; }
+	private float _volume;
+	public float Volume
+	{
+		get => this.AudioSource.volume;
+		set
+		{
+			this._volume = value;
+
+			this.AudioSource.volume = this._volume * this._audioSourceControlGroup.Volume;
+		}
+	}
+
+	//TODO: fix this ugly code.
+	private void UpdateVolume(float volume) => this.Volume = this._volume;
 
 	public void Play(AudioClip audioClip)
 	{
-		this.AudioSource.volume = this.Volume * this._audioSourceControlGroup.Volume;
+		this.AudioSource.volume = this._volume * this._audioSourceControlGroup.Volume;
 		this.AudioSource.clip = audioClip;
 
 		this.AudioSource.Play();
@@ -22,8 +35,8 @@ public class AudioSourceController : MonoBehaviour, IPoolable
 
 	public void Play(AudioClip audioClip, float volume)
 	{
-		this.Volume = volume;
-		this.AudioSource.volume = this.Volume * this._audioSourceControlGroup.Volume;
+		this._volume = volume;
+		this.AudioSource.volume = this._volume * this._audioSourceControlGroup.Volume;
 		this.AudioSource.clip = audioClip;
 
 		this.AudioSource.Play();
@@ -31,7 +44,7 @@ public class AudioSourceController : MonoBehaviour, IPoolable
 
 	public void PlayDelayed(AudioClip audioClip, float delay)
 	{
-		this.AudioSource.volume = this.Volume * this._audioSourceControlGroup.Volume;
+		this.AudioSource.volume = this._volume * this._audioSourceControlGroup.Volume;
 		this.AudioSource.clip = audioClip;
 
 		this.AudioSource.PlayDelayed(delay: delay);
@@ -47,10 +60,24 @@ public class AudioSourceController : MonoBehaviour, IPoolable
 
 	public void OnRelease()
 	{
+		this._audioSourceControlGroup._OnVolumeChange.RemoveListener(
+			call: this.UpdateVolume
+		);
+
+		this._audioSourceControlGroup._MasterAudioSourceControlGroup._OnVolumeChange.RemoveListener(
+			call: this.UpdateVolume
+		);
 	}
 
 	public void OnAquire()
 	{
+		this._audioSourceControlGroup._OnVolumeChange.AddListener(
+			call: this.UpdateVolume
+		);
+		
+		this._audioSourceControlGroup._MasterAudioSourceControlGroup._OnVolumeChange.AddListener(
+			call: this.UpdateVolume
+		);
 	}
 
 	private void Awake()

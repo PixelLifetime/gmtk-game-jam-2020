@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: '[Audio Clip Archive] Jump'
   m_EditorClassIdentifier: 
   assets:
-  - {fileID: 8300000, guid: 72dd071bd25c10d43ae50ffadc1806b4, type: 3}
-  - {fileID: 8300000, guid: 98c9546c13775cb49985e6c0d84e0491, type: 3}
-  - {fileID: 8300000, guid: f5e991b8e568e3647a23a2f41eadf93b, type: 3}
+  - {fileID: 8300000, guid: 0e317dfd4a9cbfa44bc50d54f485fd5e, type: 3}

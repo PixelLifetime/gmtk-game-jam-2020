@@ -30,7 +30,7 @@ public class EnemySpawner : GripEffect
         foreach (GameObject go in _mySpawnedEnemies)
         {
             go.SetActive(true);
-            DOTween.ToAlpha(() => go.GetComponent<SpriteRenderer>().color, x => go.GetComponent<SpriteRenderer>().color = x, 1, 1);
+            DOTween.ToAlpha(() => go.GetComponentInChildren<SpriteRenderer>().color, x => go.GetComponentInChildren<SpriteRenderer>().color = x, 1, 1);
         }
     }
 
@@ -49,7 +49,7 @@ public class EnemySpawner : GripEffect
         {
             foreach (GameObject go in _mySpawnedEnemies)
             {
-                DOTween.ToAlpha(() => go.GetComponent<SpriteRenderer>().color, x => go.GetComponent<SpriteRenderer>().color = x, 0, 0.5f);
+                DOTween.ToAlpha(() => go.GetComponentInChildren<SpriteRenderer>().color, x => go.GetComponentInChildren<SpriteRenderer>().color = x, 0, 0.5f);
             }
             Invoke("DisableMyEnemies", 0.5f);
         }
@@ -91,9 +91,9 @@ public class EnemySpawner : GripEffect
     {
         GameObject prefabToSpawn = _enemiesICanSpawn[UnityEngine.Random.Range(0, _enemiesICanSpawn.Length)];
         GameObject go = Instantiate(prefabToSpawn, new Vector2(transform.position.x, transform.position.y), new Quaternion());
-        Color rgbs = go.GetComponent<SpriteRenderer>().color;
-        go.GetComponent<SpriteRenderer>().color = new Color(rgbs.r, rgbs.g, rgbs.b, 0f);
-        DOTween.ToAlpha(() => go.GetComponent<SpriteRenderer>().color, x => go.GetComponent<SpriteRenderer>().color = x, 1, 1);
+        Color rgbs = go.GetComponentInChildren<SpriteRenderer>().color;
+        go.GetComponentInChildren<SpriteRenderer>().color = new Color(rgbs.r, rgbs.g, rgbs.b, 0f);
+        DOTween.ToAlpha(() => go.GetComponentInChildren<SpriteRenderer>().color, x => go.GetComponentInChildren<SpriteRenderer>().color = x, 1, 1);
         Enemy enemyScript = go.GetComponent<Enemy>();
         enemyScript.InitializeEnemyData(_nodeGrid, _player, _enemyBehavior);
         return go;
