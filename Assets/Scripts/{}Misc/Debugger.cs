@@ -8,6 +8,6 @@ namespace GMTKGameJam2020
 {
 	public class Debugger : MonoBehaviour
 	{
-		public void Debug(object message) => UDebug.Log(message: message);
+		public void Debug(string message) => UDebug.Log(message: message);
 	}
 }

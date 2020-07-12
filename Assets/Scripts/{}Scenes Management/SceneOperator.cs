@@ -42,4 +42,16 @@ public class SceneOperator : MonoBehaviour
 		this.StartCoroutine(
 			routine: this.LoadSceneWithDelayProcess(sceneBuildIndex: sceneBuildIndex)
 		);
+
+	private IEnumerator LoadNextSceneWithDelayProcess()
+	{
+		yield return new WaitForSeconds(this._sceneLoadDelay);
+
+		this.LoadNextScene();
+	}
+
+	public void LoadNextSceneWithDelay() =>
+		this.StartCoroutine(
+			routine: this.LoadNextSceneWithDelayProcess()
+		);
 }
